@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN Signs - Premium Signage Solutions in Tamil Nadu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffd700;
+            --primary-dark: #d4af37;
+            --secondary: #1c2526;
+            --accent: #ff4500;
+            --light: #f9fafb;
+            --dark: #1a1a1a;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-dark), var(--accent));
+        }
+
+        /* Header Styles (Glassmorphism) */
+        header {
+            transition: all 0.4s ease;
+            backdrop-filter: blur(12px);
+            background: var(--glass-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: var(--glass-bg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .logo {
+            transition: all 0.4s ease;
+        }
+        .logo.scrolled {
+            height: 48px;
+        }
+
+        /* Hero Section with Three.js Canvas */
+        .bg-slider {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(28, 37, 38, 0.8), rgba(255, 69, 0, 0.2));
+        }
+        #three-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: block;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            text-align: center;
+            z-index: 2;
+            width: 90%;
+            max-width: 1400px;
+            pointer-events: none;
+            animation: pulseText 3s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.02); }
+        }
+        .hero-text-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        .hero-text-sub {
+            font-size: 1.8rem;
+            color: var(--light);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease 0.3s;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .hero-text-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .enquire-btn-hero {
+            pointer-events: auto;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            opacity: 0.1;
+            transition: height 0.5s ease;
+            z-index: -1;
+        }
+        .content-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        .content-card:hover::before {
+            height: 100%;
+        }
+        .content-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 25px;
+            color: var(--secondary);
+        }
+        .content-card h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+        .content-card:hover h3::before {
+            transform: translateY(-50%) scale(1.8);
+            background: var(--accent);
+        }
+
+        /* Who We Are Section */
+        .who-we-are {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            position: relative;
+            padding: 3rem;
+            background: linear-gradient(135deg, #ffffff, #f0f4f8);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+        .image-section {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .circle-container {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            opacity: 0.7;
+            z-index: 1;
+            animation: pulse 5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        .circle-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            transition: all 0.6s ease;
+            position: relative;
+            z-index: 2;
+            border: 6px solid var(--light);
+            animation: float 7s ease-in-out infinite;
+        }
+        .circle-image:hover {
+            transform: scale(1.06);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        .floating-element {
+            position: absolute;
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            animation: float 7s ease-in-out infinite;
+        }
+        .floating-element i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        .element-1 { width: 60px; height: 60px; top: 15px; right: 40px; animation-delay: 0s; }
+        .element-2 { width: 50px; height: 50px; bottom: 30px; left: 30px; animation-delay: 2s; }
+        .element-3 { width: 40px; height: 40px; top: 80px; left: 20px; animation-delay: 4s; }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(12deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        .content-section {
+            flex: 1;
+            min-width: 320px;
+        }
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        .stats-section {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .stat-box {
+            flex: 1;
+            min-width: 150px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            opacity: 0.15;
+            transition: height 0.6s ease;
+            z-index: 0;
+        }
+        .stat-box:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        .stat-box:hover::before {
+            height: 100%;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 1;
+        }
+        .icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .stat-box:hover .icon {
+            transform: scale(1.3) rotate(8deg);
+            color: var(--accent);
+        }
+        .description {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.6s ease;
+        }
+        .who-we-are:hover .highlight::after {
+            width: 100%;
+        }
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.12;
+            transition: all 1.2s ease;
+        }
+        .decoration-1 {
+            top: -40px;
+            right: -40px;
+            width: 220px;
+            height: 220px;
+            border: 25px solid var(--accent);
+            border-radius: 50%;
+            animation: rotate 18s linear infinite;
+        }
+        .decoration-2 {
+            bottom: -50px;
+            left: -50px;
+            width: 180px;
+            height: 180px;
+            border: 20px solid var(--primary);
+            transform: rotate(45deg);
+            animation: rotateReverse 22s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes rotateReverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to bottom, rgba(255,215,0,0.15), rgba(255,69,0,0.15));
+            transition: height 0.6s ease;
+            z-index: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        .service-card:hover::before {
+            height: 100%;
+        }
+        .service-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .service-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .service-card:hover .service-img::after {
+            opacity: 1;
+        }
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+        }
+        .service-card:hover .service-img img {
+            transform: scale(1.12);
+        }
+        .service-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--secondary);
+        }
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.6s ease;
+        }
+        .service-card:hover h3::after {
+            width: 100%;
+        }
+
+        /* Contact Form (Glassmorphism) */
+       /* Contact Form (Glassmorphism) */
+.contact-form {
+    background: rgba(255, 255, 255, 0.95); /* Increased opacity for better visibility */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    z-index: 4; /* Ensure above other elements */
+}
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,215,0,0.08), transparent);
+    transform: rotate(45deg);
+    animation: shine 7s infinite linear;
+    z-index: 0;
+}
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+.form-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+    z-index: 1;
+}
+.form-control {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Darker border for contrast */
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.8); /* Slightly opaque background */
+    color: var(--dark); /* Dark text for readability */
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.25);
+    transform: translateY(-3px);
+}
+.form-control::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Darker placeholder text */
+}
+.form-label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: rgba(0, 0, 0, 0.7); /* Darker label color */
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+    top: -0.8rem;
+    left: 0.8rem;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.95); /* Match form background */
+    padding: 0 0.5rem;
+    color: var(--primary);
+}
+        /* Button Styles */
+        .enquire-btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .enquire-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), #333);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        .enquire-btn:hover {
+            color: var(--light);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        .enquire-btn:hover::before {
+            left: 0;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 7s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(15deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--light);
+            z-index: 100;
+            transition: all 0.4s ease;
+        }
+        .hamburger:hover {
+            transform: scale(1.2);
+            color: var(--primary);
+        }
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+        }
+        .nav-menu li a {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color:black;
+            transition: all 0.4s ease;
+        }
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.4s ease;
+        }
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2.2rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.4s ease;
+        }
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: var(--accent);
+        }
+        
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fadeInUp {
+            animation: fadeInUp 1s ease forwards;
+        }
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+
+        /* Section Spacing and Parallax */
+        section {
+            padding: 6rem 0;
+            position: relative;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        #about { background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1516321310766-78a995d0c1fe'); }
+        #services { background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf'); }
+        #contact { background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'); }
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+            color: var(--secondary);
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+        .section-title:hover h2::after {
+            width: 200px;
+        }
+
+        /* Particle Background Effect */
+        .particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: floatParticle 12s infinite linear;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0.4; }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1440px;
+            }
+            .hero-text-main {
+                font-size: 6rem;
+            }
+            .hero-text-sub {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 1280px) {
+            .hero-text-main {
+                font-size: 4rem;
+            }
+            .hero-text-sub {
+                font-size: 1.6rem;
+            }
+        }
+        @media (max-width: 1024px) {
+            .who-we-are {
+                flex-direction: column;
+            }
+            .image-section {
+                order: -1;
+                margin-bottom: 2.5rem;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--glass-bg);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                box-shadow: -8px 0 20px rgba(0, 0, 0, 0.15);
+                transition: all 0.5s ease;
+                z-index: 100;
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .close-btn {
+                display: block;
+            }
+            .circle-container {
+                width: 320px;
+                height: 320px;
+            }
+            .circle-image {
+                width: 290px;
+                height: 290px;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-text-main {
+                font-size: 3rem;
+            }
+            .hero-text-sub {
+                font-size: 1.3rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            .content-section h2 {
+                font-size: 2.2rem;
+            }
+            .contact-form {
+                padding: 2rem;
+            }
+            .circle-container {
+                width: 280px;
+                height: 280px;
+            }
+            .circle-image {
+                width: 250px;
+                height: 250px;
+            }
+            .element-1, .element-2, .element-3 {
+                transform: scale(0.85);
+            }
+            .stats-section .stat-box {
+                min-width: calc(50% - 1.5rem);
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-text-main {
+                font-size: 2.2rem;
+            }
+            .hero-text-sub {
+                font-size: 1rem;
+            }
+            .enquire-btn {
+                padding: 0.8rem 1.8rem;
+            }
+            .content-card {
+                padding: 1.5rem;
+            }
+            .circle-container {
+                width: 240px;
+                height: 240px;
+            }
+            .circle-image {
+                width: 210px;
+                height: 210px;
+            }
+            .element-1, .element-2, .element-3 {
+                transform: scale(0.75);
+            }
+            .stats-section .stat-box {
+                min-width: 100%;
+            }
+            .container {
+                padding: 0.8rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            /* Section Transition Base */
+    .section-transition {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section-transition.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Enhanced Hover Transitions */
+    .content-card, .stat-box, .service-card, .contact-form, .footer-col {
+        transition: all 0.5s ease-in-out;
+    }
+    .content-card:hover, .stat-box:hover, .service-card:hover {
+        transform: translateY(-15px) scale(1.03);
+    }
+    .service-img img, .circle-image {
+        transition: transform 0.5s ease-in-out;
+    }
+    .enquire-btn {
+        transition: all 0.5s ease-in-out;
+    }
+    .enquire-btn:hover {
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    /* Existing Animations */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .fadeInUp {
+        animation: fadeInUp 1s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="tnlogo.jpg" alt="TN Signs Logo" class="logo h-16 transition-all duration-300">
+            <div class="flex items-center">
+                <span class="hamburger"><i class="fas fa-bars"></i></span>
+                <nav>
+                    <ul class="nav-menu">
+                        <span class="close-btn"><i class="fas fa-times"></i></span>
+                        <li><a href="3d.html" class="text-gray-900">Home</a></li>
+                        <li><a href="#about" class="text-gray-900">About Us</a></li>
+                        <li><a href="product.html" class="text-gray-900">Product</a></li>
+                        <li><a href="#services" class="text-gray-900">Services</a></li>
+                        <li><a href="#contact" class="text-gray-900">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Three.js Canvas -->
+    <section id="home" class="bg-slider">
+        <canvas id="three-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-text-main"></h1>
+            <p class="hero-text-sub"></p>
+            <a href="#contact" ></a>
+        </div>
+        <!-- Floating elements for visual interest -->
+        <div class="floating-element" style="top: 15%; left: 8%;">
+            <i class="fas fa-square text-yellow-400 text-4xl opacity-40"></i>
+        </div>
+        <div class="floating-element" style="top: 65%; right: 12%; animation-delay: 2s;">
+            <i class="fas fa-circle text-white text-2xl opacity-40"></i>
+        </div>
+        <div class="floating-element" style="bottom: 25%; left: 10%; animation-delay: 4s;">
+            <i class="fas fa-plus text-yellow-400 text-3xl opacity-40"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Excellence in every sign we create</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="content-card fadeInUp">
+                    <div class="icon-box mb-5 text-5xl text-yellow-600">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Innovative Solutions</h3>
+                    <p>TN Signs conceptualizes, designs, and delivers signage solutions tailored to the best of your needs.</p>
+                </div>
+                <div class="content-card fadeInUp delay-1">
+                    <div class="icon-box mb-5 text-5xl text-yellow-600">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Customer Satisfaction</h3>
+                    <p>We assist in choosing the perfect sign system, including typeface, color style, and material.</p>
+                </div>
+                <div class="content-card fadeInUp delay-2">
+                    <div class="icon-box mb-5 text-5xl text-yellow-600">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Brand Communication</h3>
+                    <p>We understand the critical role of signage in communicating corporate identity effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="who-we-are">
+                <div class="decoration decoration-1"></div>
+                <div class="decoration decoration-2"></div>
+                <div class="image-section">
+                    <div class="circle-container">
+                        <div class="circle-background"></div>
+                        <img src="tns1_circle.png" alt="What Your Signboard Says About You" class="circle-image">
+                        <div class="floating-elements">
+                            <div class="floating-element element-1">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="floating-element element-2">
+                                <i class="fas fa-pen-fancy"></i>
+                            </div>
+                            <div class="floating-element element-3">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <h2 class="main-title">TN Signs</h2>
+                    <p class="description">
+                        <span class="highlight">TN Signs</span> is one of the largest sign manufacturing companies offering products of high visibility and unparallel advantage. We understand the critical role of signage for communicating the corporate identity effectively.
+                    </p>
+                    <p class="description">
+                        We offer distinct signage which are elegant, enduring, and affordable. Our team helps customers in choosing the perfect sign system, suitable typeface, color style, material, and backdrop that complements their brand identity.
+                    </p>
+                </div>
+                <div class="stats-section">
+                    <div class="stat-box">
+                        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-number" id="years">0</div>
+                        <div class="stat-label">Glorious Years</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-number" id="advisors">0</div>
+                        <div class="stat-label">Expert Advisors</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number" id="projects">0</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="icon"><i class="fas fa-smile"></i></div>
+                        <div class="stat-number" id="clients">0</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive signage solutions for all your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fadeInUp">
+                    <div class="service-img">
+                        <img src="home signages.jpg" alt="Glow Sign Boards">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-xl font-semibold mb-3">Home Signages</h3>
+                        <p>Eye-catching illuminated signs that make your business stand out, day and night.</p>
+                    </div>
+                </div>
+                <div class="service-card fadeInUp delay-1">
+                    <div class="service-img">
+                        <img src="3d acrylic.jpg" alt="LED Signage">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-xl font-semibold mb-3">3D Acrylic Signage</h3>
+                        <p>Modern, energy-efficient LED signs with dynamic content and vibrant displays.</p>
+                    </div>
+                </div>
+                <div class="service-card fadeInUp delay-2">
+                    <div class="service-img">
+                        <img src="backlight.jpg" alt="3D Letters">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-xl font-semibold mb-3">Back Light</h3>
+                        <p>Dimensional signage that adds depth and sophistication to your brand identity.</p>
+                    </div>
+                </div>
+                <div class="service-card fadeInUp delay-3">
+                    <div class="service-img">
+                        <img src="neonboard.jpg" alt="Hoarding Boards">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-xl font-semibold mb-3">Neon Board</h3>
+                        <p>Large format outdoor advertising solutions with maximum visibility and impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for a free consultation</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="contact-info">
+                    <h3 class="text-3xl font-semibold mb-6 font-playfair">Let's Discuss Your Project</h3>
+                    <p class="mb-8 text-lg">We're ready to bring your vision to life with our premium signage solutions. Reach out to us for a consultation or quote.</p>
+                    <div class="contact-details space-y-8">
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 text-2xl mr-5">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Address</h4>
+                                <p>123 Sign Street, Chennai, Tamil Nadu 600001</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 text-2xl mr-5">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Phone</h4>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 text-2xl mr-5">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Email</h4>
+                                <p>info@tnsigns.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 text-2xl mr-5">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Working Hours</h4>
+                                <p>Monday - Saturday: 9AM - 6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                            <label for="name" class="form-label">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                            <label for="email" class="form-label">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" class="form-control" placeholder="Phone Number">
+                            <label for="phone" class="form-label">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <label for="message" class="form-label">Your Message</label>
+                        </div>
+                        <button type="submit" class="enquire-btn w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div class="footer-col">
+                    <img src="tnlogo.jpg" alt="TN Signs Logo" class="h-16 mb-6">
+                    <p class="mb-6 text-lg">Premium signage solutions in Tamil Nadu. Transforming brands with innovative and impactful signage.</p>
+                    <div class="social-links flex space-x-5">
+                        <a href="#" class="text-yellow-600 hover:text-yellow-400 transition-colors text-2xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-yellow-600 hover:text-yellow-400 transition-colors text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-yellow-600 hover:text-yellow-400 transition-colors text-2xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-yellow-600 hover:text-yellow-400 transition-colors text-2xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="text-2xl font-semibold mb-6 font-playfair">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#home" class="hover:text-yellow-600 transition-colors text-lg">Home</a></li>
+                        <li><a href="#about" class="hover:text-yellow-600 transition-colors text-lg">About Us</a></li>
+                        <li><a href="#services" class="hover:text-yellow-600 transition-colors text-lg">Services</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-600 transition-colors text-lg">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="text-2xl font-semibold mb-6 font-playfair">Our Services</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-yellow-600 transition-colors text-lg">Glow Sign Boards</a></li>
+                        <li><a href="#" class="hover:text-yellow-600 transition-colors text-lg">LED Signage</a></li>
+                        <li><a href="#" class="hover:text-yellow-600 transition-colors text-lg">3D Letters</a></li>
+                        <li><a href="#" class="hover:text-yellow-600 transition-colors text-lg">Hoarding Boards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="text-2xl font-semibold mb-6 font-playfair">Newsletter</h3>
+                    <p class="mb-4 text-lg">Subscribe to our newsletter for updates and offers</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900 bg-white">
+                        <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-r transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p>&copy; 2025 TN Signs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.1/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+        import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+
+        // Initialize Three.js scene
+        const canvas = document.getElementById('three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Add lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0xffffff, 1.5, 100);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+        const neonLight = new THREE.PointLight(0xffd700, 2, 10);
+        neonLight.position.set(0, 2, 2);
+        scene.add(neonLight);
+
+        // Load font for 3D text with neon effect
+        const loader = new FontLoader();
+        loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+            const textGeometry = new TextGeometry('TN Signs', {
+                font: font,
+                size: 1.2,
+                depth: 0.3,
+                curveSegments: 12,
+                bevelEnabled: true,
+                bevelThickness: 0.04,
+                bevelSize: 0.03,
+                bevelOffset: 0,
+                bevelSegments: 8
+            });
+            textGeometry.computeBoundingBox();
+            const textWidth = textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x;
+            const textHeight = textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y;
+            textGeometry.translate(-textWidth / 2, -textHeight / 2, 0);
+            const textMaterial = new THREE.MeshPhongMaterial({
+                color: 0xffd700,
+                emissive: 0xff4500,
+                emissiveIntensity: 0.5,
+                shininess: 150,
+                specular: 0xffffff
+            });
+            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            textMesh.position.set(0, 0.5, 0);
+            scene.add(textMesh);
+
+            const boardGeometry = new THREE.BoxGeometry(6.5, 2.2, 0.1);
+            const boardMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, shininess: 50 });
+            const boardMesh = new THREE.Mesh(boardGeometry, boardMaterial);
+            boardMesh.position.set(0, 0, -0.3);
+            scene.add(boardMesh);
+
+            // Add 3D particles
+            const particleCount = 100;
+            const particles = new THREE.Group();
+            for (let i = 0; i < particleCount; i++) {
+                const geometry = new THREE.SphereGeometry(0.05, 16, 16);
+                const material = new THREE.MeshBasicMaterial({ color: Math.random() > 0.5 ? 0xffd700 : 0xff4500 });
+                const particle = new THREE.Mesh(geometry, material);
+                particle.position.set(
+                    (Math.random() - 0.5) * 10,
+                    (Math.random() - 0.5) * 10,
+                    (Math.random() - 0.5) * 10
+                );
+                particles.add(particle);
+            }
+            scene.add(particles);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                textMesh.rotation.y += 0.010;
+                boardMesh.rotation.y += 0.010;
+                particles.rotation.y += 0.004;
+                particles.children.forEach(particle => {
+                    particle.position.y += 0.01 * Math.sin(Date.now() * 0.001 + particle.position.x);
+                    if (particle.position.y > 5) particle.position.y -= 10;
+                });
+                renderer.render(scene, camera);
+            }
+            animate();
+        });
+
+        // Camera position
+        camera.position.set(0, 0, 5);
+        camera.lookAt(0, 0, 0);
+
+        // Orbit controls with zoom disabled
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = false; // Disable zoom to prevent scaling on scroll
+        controls.enablePan = false;
+        controls.minDistance = 5;
+        controls.maxDistance = 5;
+        controls.enableRotate = true;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.5;
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Prevent scroll from affecting Three.js canvas
+        window.addEventListener('scroll', () => {
+            // Ensure camera and canvas size remain fixed during scroll
+            camera.position.set(0, 0, 5);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const logo = document.querySelector('.logo');
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                logo.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                logo.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const closeBtn = document.querySelector('.close-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        closeBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Create 2D particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const colors = ['#ffd700', '#ff4500', '#ffffff', '#1c2526'];
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 12 + 4;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.background = color;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 8 + 8}s`;
+                particle.style.animationDelay = `${Math.random() * 4}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animate stats counter with easing
+        function animateCounter(elementId, target, duration) {
+            const element = document.getElementById(elementId);
+            let start = 0;
+            const startTime = performance.now();
+            const easeOutQuad = t => t * (2 - t);
+            const updateCounter = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuad(progress);
+                start = target * easedProgress;
+                element.textContent = Math.floor(start);
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+            requestAnimationFrame(updateCounter);
+        }
+
+        function initCounters() {
+            const section = document.querySelector('.stats-section');
+            const position = section.getBoundingClientRect();
+            if (position.top >= 0 && position.bottom <= window.innerHeight) {
+                animateCounter('years', 15, 2500);
+                animateCounter('advisors', 50, 2500);
+                animateCounter('projects', 1000, 2500);
+                animateCounter('clients', 850, 2500);
+                window.removeEventListener('scroll', initCounters);
+            }
+        }
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            const heroTextMain = document.querySelector('.hero-text-main');
+            const heroTextSub = document.querySelector('.hero-text-sub');
+            setTimeout(() => {
+                heroTextMain.classList.add('hero-text-visible');
+                heroTextSub.classList.add('hero-text-visible');
+            }, 300);
+            window.addEventListener('scroll', initCounters);
+            initCounters();
+        });
+         document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.section-transition');
+        let hasScrolled = false;
+
+        function checkSections() {
+            if (!hasScrolled) return; // Only proceed if scrolling has occurred
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Trigger animation when section is 10% visible during scroll
+                if (rect.top >= 0 && rect.top < windowHeight * 0.9) {
+                    section.classList.add('in-view');
+                }
+            });
+        }
+
+        // Detect initial scroll to enable animations
+        window.addEventListener('scroll', () => {
+            hasScrolled = true;
+            requestAnimationFrame(checkSections);
+        });
+
+        // Initial check to handle sections already in view (optional, can be removed if not needed)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (window.scrollY > 0) {
+                    hasScrolled = true;
+                    checkSections();
+                }
+            }, 100); // Small delay to ensure DOM is ready
+        });
+    });
+    </script>
+</body>
+</html>

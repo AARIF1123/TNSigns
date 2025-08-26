@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | TN Signs - Premium Signage Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --primary-dark: #e6b800;
+            --secondary: #1a1a1a;
+            --accent: #ff5e14;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enhanced Background Decorations with Particles */
+        .background-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.1) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 94, 20, 0.1) 0%, transparent 30%);
+            animation: bgPulse 10s infinite alternate;
+        }
+
+        .decorative-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 15s infinite;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--accent);
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes bgPulse {
+            0% { background-size: 100%; }
+            100% { background-size: 120%; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header Styles */
+        header {
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .logo {
+            transition: all 0.3s ease;
+        }
+
+        .logo.scrolled {
+            height: 50px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu li a {
+            position: relative;
+            padding: 5px 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--secondary);
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+            color: var(--primary);
+        }
+
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: var(--accent);
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin: 120px 0 50px;
+            position: relative;
+            padding: 3rem 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .page-title.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-title h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .page-title:hover h1::after {
+            width: 200px;
+        }
+
+        .page-title p {
+            font-size: 1.4rem;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 400;
+            animation: fadeIn 1.2s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 60px;
+            padding: 2rem 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .category-filter.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 600;
+            color: #555;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,204,0,0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: var(--secondary);
+            border-color: var(--primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 0 20px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.5s ease;
+        }
+
+        /* Transition Animations for Product Cards */
+        .product-card.from-left {
+            transform: translateX(-100px);
+        }
+
+        .product-card.from-right {
+            transform: translateX(100px);
+        }
+
+        .product-card.from-top {
+            transform: translateY(-100px);
+        }
+
+        .product-card.from-bottom {
+            transform: translateY(100px);
+        }
+
+        .product-card.in-view {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to bottom, rgba(255,204,0,0.15), rgba(255,94,20,0.15));
+            transition: height 0.6s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card:hover::before {
+            height: 100%;
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .product-card:hover .product-img::after {
+            opacity: 1;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.15);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-content h3 {
+            position: relative;
+            display: inline-block;
+            font-size: 1.3rem;
+        }
+
+        .product-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.6s ease;
+        }
+
+        .product-card:hover .product-content h3::after {
+            width: 100%;
+        }
+
+        .product-category {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(255, 94, 20, 0.2);
+            border-radius: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .view-details {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            background: rgba(255,204,0,0.15);
+        }
+
+        .view-details i {
+            margin-left: 10px;
+            transition: transform 0.4s ease;
+        }
+
+        .view-details:hover {
+            color: white;
+            background: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .view-details:hover i {
+            transform: translateX(8px);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #bbb;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease;
+                z-index: 100;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .close-btn {
+                display: block;
+            }
+
+            .nav-menu li a {
+                color: var(--secondary);
+                display: block;
+                padding: 12px 0;
+                font-weight: 600;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-title p {
+                font-size: 1.1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .category-filter {
+                gap: 10px;
+                padding: 1.5rem;
+            }
+
+            .filter-btn {
+                padding: 10px 25px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .page-title p {
+                font-size: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 90%;
+                margin-bottom: 10px;
+                font-size: 0.9rem;
+            }
+
+            .footer-col {
+                margin-bottom: 40px;
+            }
+
+            .decorative-shape {
+                display: none;
+            }
+
+            /* Adjust transitions for single-column layout */
+            .product-card.from-left,
+            .product-card.from-right,
+            .product-card.from-top,
+            .product-card.from-bottom {
+                transform: translateY(50px); /* Fallback to top-to-bottom for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Decorations with Particles -->
+    <div class="background-decoration">
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-shape shape-2"></div>
+    </div>
+
+    <!-- Header with Homepage Styling -->
+    <header>
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="tnlogo.jpg" alt="TN Signs Logo" class="logo h-16 transition-all duration-300">
+            <div class="flex items-center">
+                <span class="hamburger"><i class="fas fa-bars"></i></span>
+                <nav>
+                    <ul class="nav-menu">
+                        <span class="close-btn"><i class="fas fa-times"></i></span>
+                        <li><a href="index.html" class="text-gray-900">Home</a></li>
+                        <li><a href="product.html" class="text-yellow-400">Products</a></li>
+                        <li><a href="contact.html" class="text-gray-900">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container mx-auto px-4">
+            <h1>Our Products</h1>
+            <p>Explore our wide range of premium signage solutions designed to elevate your brand presence</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <button class="filter-btn active" data-category="all">All Products</button>
+        <button class="filter-btn" data-category="letters">Letters & Signage</button>
+        <button class="filter-btn" data-category="boards">Boards & Hoardings</button>
+        <button class="filter-btn" data-category="standees">Standees & Displays</button>
+        <button class="filter-btn" data-category="branding">Vehicle & Event Branding</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="container mx-auto px-4">
+        <div class="products-grid">
+            <!-- ACP Products -->
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="acpwithtrimcap.jpg" alt="ACP with Trimcap Letter Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">ACP with Trimcap Letter Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Premium ACP boards with trimcap finishing for a sleek professional look.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="acpcladding.jpg" alt="ACP Cladding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">ACP Cladding</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Durable and attractive ACP cladding solutions for buildings and structures.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Acrylic Products -->
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="3d acrylic.jpg" alt="ACP With Acrylic Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">ACP With Acrylic Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Combination of ACP and acrylic for premium signage solutions.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="custoacrylicsignage.jpg" alt="Customized Acrylic Signage" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Customized Acrylic Signage</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Fully customized acrylic signs tailored to your specific requirements.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- 3D Letters -->
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="batatype3dletters.jpg" alt="Bata Type 3D Letters" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Bata Type 3D Letters</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Elegant 3D letters with Bata styling for premium brand representation.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Digital Products -->
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="digitalkiosk.jpg" alt="Digital Kiosk" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Digital Kiosk</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Interactive digital kiosks for information and advertising purposes.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Metal Letters -->
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="titaniumgoldmetalletters.jpg" alt="Titanium Gold Metal Letters" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Titanium Gold Metal Letters</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Premium titanium gold metal letters for a luxurious appearance.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Light Boards -->
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="uvbacklightboard.jpg" alt="UV Backlight Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">UV Backlight Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>UV printed backlight boards for vibrant and eye-catching displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Standees -->
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="cubbeestandee.jpg" alt="Cube Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Cube Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Multi-dimensional cube standees for maximum visual impact.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Branding -->
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="vehiclewraps.jpg" alt="Vehicle Wraps" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Vehicle Wraps</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Complete vehicle wrapping services for mobile advertising.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="eventbackdrop.jpg" alt="Event Backdrop" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Event Backdrop</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Custom event backdrops for conferences, weddings, and special events.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+
+            <!-- Additional Products (Corrected Image Paths) -->
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="home signages.jpg" alt="3D Acrylic Home Signage" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">3D Acrylic Home Signage</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Elegant 3D acrylic signs for residential address display.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="pylon board.jpg" alt="Pylon Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Pylon Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Tall, illuminated signs for high visibility and brand prominence.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="custoacrylicsignage.jpg" alt="Customized Acrylic Signage" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Customized Acrylic Signage</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Unique acrylic designs tailored to your brand’s identity.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <!-- <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="frontlightstructure.jpg" alt="Front Light Structure" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Front Light Structure</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Illuminated front-lit signs for day and night visibility.</p>
+                    <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div> -->
+
+            <!-- New Products -->
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="titangolgmetanblletter.jpg" alt="Titanium Gold Metal BL Letter" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Titanium Gold Metal BL Letter</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Premium titanium gold metal backlit letters for a luxurious look.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="frontlightstructure.jpg" alt="Front Light Structure Hoarding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Front Light Structure Hoarding</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Illuminated hoarding with front light structure for visibility.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="policebooth.jpg" alt="Police Booth" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Police Booth</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Custom signage for police booths with durable materials.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="fabricled.jpg" alt="Fabric Led Light Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Fabric Led Light Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Fabric-based LED illuminated boards for vibrant displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="UV Back Light Lollipop Board.jpg" alt="UV Back Light Lollipop Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">UV Back Light Lollipop Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>UV-printed lollipop board with backlight for eye-catching signs.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="backlightboard.jpg" alt="Backlight Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Backlight Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Illuminated backlight board for effective signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="foam3dlettersboard.jpg" alt="Foam 3D Letters Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Foam 3D Letters Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Lightweight foam 3D letters for creative signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="backlightarch.jpg" alt="Back Light Arch" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Back Light Arch</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Illuminated arch design for entrance or event signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="hoardingerection.jpg" alt="Hoarding Erection" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Hoarding Erection</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Professional installation of hoarding structures.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="backlightdealerboard.jpg" alt="Back Light Dealer Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Back Light Dealer Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Illuminated dealer board for business promotion.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="cngcutacrylic3dsignboard.jpg" alt="CNG Cut Acrylic 3D Sign Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">CNG Cut Acrylic 3D Sign Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Custom 3D acrylic sign board for CNG branding.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="lgvinylcuttingboard.jpg" alt="LG Vinyl Cutting Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">LG Vinyl Cutting Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Precision-cut vinyl board for LG branding.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="curvedstandee.jpg" alt="Curved Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Curved Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Curved design standee for effective displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="frosteddirectuvprint.jpg" alt="Frosted Direct UV Print" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Frosted Direct UV Print</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Frosted UV-printed standee for a unique look.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="truckretailbranding.jpg" alt="Truck Retail Branding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Truck Retail Branding</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Branding solutions for truck retail advertising.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="policebarricadebranding.jpg" alt="Police Barricade Branding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Police Barricade Branding</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Custom branding for police barricades.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="nonlightdealerboard.jpg" alt="Non Light Dealer Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Non Light Dealer Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Non-illuminated dealer board for daytime use.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="sitehoarding.jpg" alt="Site Hoarding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Site Hoarding</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Construction site hoarding for safety and branding.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="2dcutlettershomesignage.jpg" alt="2D Cut Letters Home Signage" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">2D Cut Letters Home Signage</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>2D cut letters for residential signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="2dinnercuthomesignage.jpg" alt="2D Inner Cut Home Signage" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">2D Inner Cut Home Signage</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Inner-cut 2D letters for home signage designs.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="backlightstandee.jpg" alt="Backlight Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Backlight Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Illuminated standee for enhanced visibility.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="acrylicbacklightboarddirectuvprint.jpg" alt="Acrylic Backlight Board Direct UV Print" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Acrylic Backlight Board Direct UV Print</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Acrylic backlight board with direct UV printing.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="nonlitarch.jpg" alt="Non – Lit Arch" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Non – Lit Arch</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Non-illuminated arch for decorative signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="3mmacrylicboardwithstudvinylprint.jpg" alt="3mm Acrylic Board With Stud Vinyl Print" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">3mm Acrylic Board With Stud Vinyl Print</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>3mm acrylic board with stud and vinyl printing.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="5mmgoldacryliclettersnameboard.jpg" alt="5 mm Gold Acrylic Letters Name Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">5 mm Gold Acrylic Letters Name Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Gold acrylic letters for premium name boards.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="cliponboard.jpg" alt="Clipon Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Clipon Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Clip-on design board for easy updates.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="slimbacklightboard.jpg" alt="Slim Back Light Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Slim Back Light Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Slim profile backlight board for modern signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="5mmgoldacrylicinnercutletterboard.jpg" alt="5mm Gold Acrylic Inner Cut Letter Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">5mm Gold Acrylic Inner Cut Letter Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Inner-cut gold acrylic letters for signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="3mmacryliccutlettersboard.jpg" alt="3mm Acrylic Cut Letters Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">3mm Acrylic Cut Letters Board</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>3mm acrylic cut letters for signage designs.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="selfie.jpg" alt="Custom Selfie Booth" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Custom Selfie Booth</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Custom-designed selfie booth for events.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="policedir.jpg" alt="Traffic Police Direction Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Traffic Police Direction Board</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Direction boards for traffic police use.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="dental3dboard.jpg" alt="Dental 3D Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Dental 3D Board</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>3D signage tailored for dental clinics and practices.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="productdisplay.jpg" alt="Product Display" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Product Display</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Custom displays for showcasing products at events.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="canopytent.jpg" alt="Canopy Tent" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Canopy Tent</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Branded canopy tents for outdoor events.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="inflatedmascot.jpg" alt="Inflated Mascot" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Inflated Mascot</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Inflatable mascots for promotional events.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="promotable.jpg" alt="Promo Table" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Promo Table</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Promotional tables for marketing campaigns.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="premiumrollupstandee.jpg" alt="Premium Rollup Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Premium Rollup Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>High-quality rollup standee for professional displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="easilwoodenstandee.jpg" alt="Easil Wooden Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Easil Wooden Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Wooden easil standee for rustic displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="eventbackdrop.jpg" alt="Event Backdrop" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Event Backdrop</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Custom event backdrops for conferences, weddings, and special events.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="tablebranding.jpg" alt="Table Branding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Table Branding</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Branded table covers for professional event setups.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="promotionalumbrellas.jpg" alt="Promotional Umbrellas" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Promotional Umbrellas</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Custom umbrellas for outdoor branding and promotion.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="foamsafetysignage.jpg" alt="Foam Safety Signage" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Foam Safety Signage</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Lightweight foam signs for safety and awareness.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="fluteboardsunpackboard.jpg" alt="Flute Board Sunpack Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Flute Board Sunpack Board</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Durable flute board for signage and displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="frostedstickerglassbranding.jpg" alt="Frosted Sticker Glass Branding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Frosted Sticker Glass Branding</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Frosted stickers for glass branding solutions.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="ecosolvantvinylbranding.jpg" alt="Eco – Solvant Vinyl Branding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Eco – Solvant Vinyl Branding</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Eco-friendly vinyl branding for sustainable marketing.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="autohoodbranding.jpg" alt="Auto Hood Branding" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Auto Hood Branding</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Branding solutions for vehicle hoods.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="branding">
+                <div class="product-img">
+                    <img src="ssetchednameplates.jpg" alt="SS Etched Nameplates" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">SS Etched Nameplates</h3>
+                    <span class="product-category">Vehicle & Event Branding</span>
+                    <p>Stainless steel etched nameplates for durable branding.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="frameoutdoorstandee.jpg" alt="Frame Outdoor Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Frame Outdoor Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Sturdy frame standee for outdoor use.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <!-- <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="backlightstandee.jpg" alt="Backlight Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Backlight Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Illuminated standee for enhanced visibility.</p>
+                    <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div> -->
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="customizedcutoutstandee.jpg" alt="Customized Cut – Out Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Customized Cut – Out Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Custom cut-out standee for unique displays.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="whitemetalrollupstandee.jpg" alt="White Metal Rollup Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">White Metal Rollup Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>White metal rollup standee for a sleek look.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="blackmetalstandee.jpg" alt="Black Metal Standee" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Black Metal Standee</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Black metal standee for a bold display.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="standees">
+                <div class="product-img">
+                    <img src="sandwichboard.jpg" alt="Sandwich Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Sandwich Board</h3>
+                    <span class="product-category">Standees & Displays</span>
+                    <p>Double-sided sandwich board for street advertising.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="boards">
+                <div class="product-img">
+                    <img src="flangelollipopboard.jpg" alt="Flange Lollipop Board" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Flange Lollipop Board</h3>
+                    <span class="product-category">Boards & Hoardings</span>
+                    <p>Flange-mounted lollipop board for visibility.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+            <div class="product-card" data-category="letters">
+                <div class="product-img">
+                    <img src="vinylcutletters.jpg" alt="Vinyl Cut Letters" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="text-xl font-semibold mb-3">Vinyl Cut Letters</h3>
+                    <span class="product-category">Letters & Signage</span>
+                    <p>Precision-cut vinyl letters for signage.</p>
+                    <!-- <a href="#" class="view-details">View Details <i class="fas fa-arrow-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Leading signage solutions provider with a focus on innovation and quality.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@tnsigns.com</p>
+                    <p>Phone: +91-123-456-7890</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 TN Signs. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Assign Transition Classes to Product Cards
+        function assignTransitionClasses() {
+            const productCards = document.querySelectorAll('.product-card');
+            const transitions = ['from-left', 'from-right', 'from-top', 'from-bottom'];
+
+            productCards.forEach((card, index) => {
+                // Assign transition class based on index (cycle through the 4 transitions)
+                const transitionClass = transitions[index % 4];
+                card.classList.add(transitionClass);
+            });
+        }
+
+        // Scroll Effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            const elements = document.querySelectorAll('.page-title, .category-filter, .product-card');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    element.classList.add('in-view');
+                }
+            });
+        });
+
+        // Category Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                        // Reapply transition class when filtered to ensure animation plays
+                        const transitions = ['from-left', 'from-right', 'from-top', 'from-bottom'];
+                        card.classList.remove('in-view', 'from-left', 'from-right', 'from-top', 'from-bottom');
+                        const index = Array.from(productCards).indexOf(card);
+                        card.classList.add(transitions[index % 4]);
+                        // Trigger reflow to restart animation
+                        void card.offsetWidth;
+                        setTimeout(() => {
+                            if (card.getBoundingClientRect().top < window.innerHeight - 100) {
+                                card.classList.add('in-view');
+                            }
+                        }, 100);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            assignTransitionClasses();
+
+            // Trigger scroll effects immediately for elements already in view
+            const elements = document.querySelectorAll('.page-title, .category-filter, .product-card');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    element.classList.add('in-view');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
