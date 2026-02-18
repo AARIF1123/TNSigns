@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Custom 3D Bata Letters | Sign Board Manufacturer Chennai">
+    <meta name="description" content="TNSigns creates premium custom 3D Bata letters, combining elegance and durability to enhance your brand identity in Chennai.">
+    <link rel="icon" href="tns logo.png" type="image/x-icon">
+    <title>Customized Acrylic Signage - TNSigns</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3W99MFP');</script>
+<!-- End Google Tag Manager -->
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --primary-dark: #e6b800;
+            --secondary: #1a1a1a;
+            --accent: #ff5e14;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enhanced Background Decorations */
+        .background-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.1) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 94, 20, 0.1) 0%, transparent 30%);
+            animation: bgPulse 10s infinite alternate;
+        }
+
+        .decorative-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 15s infinite;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--accent);
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes bgPulse {
+            0% { background-size: 100%; }
+            100% { background-size: 120%; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header Styles */
+        header {
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .logo {
+            transition: all 0.3s ease;
+        }
+
+        .logo.scrolled {
+            height: 50px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu li a {
+            position: relative;
+            padding: 5px 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--secondary);
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+            color: var(--primary);
+        }
+
+        .hamburger.hidden {
+            display: none;
+        }
+
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn.visible {
+            display: block;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: var(--accent);
+        }
+
+        /* Image Container */
+        .image-container {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 120px auto 80px;
+        }
+
+        .large-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .large-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            max-width: 95vw;
+            max-height: 95vh;
+            width: auto;
+            height: auto;
+            position: relative;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 40px;
+            cursor: pointer;
+            color: white;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .modal-images img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navigation Buttons for Modal */
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        .modal-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #bbb;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease;
+                z-index: 100;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: inline-block;
+            }
+
+            .close-btn {
+                display: none;
+            }
+
+            .close-btn.visible {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .large-image {
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .large-image {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3W99MFP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- Background Decorations -->
+    <div class="background-decoration">
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-shape shape-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"><img src="tns logo.png" alt="TN Signs Logo" class="logo h-16 transition-all duration-300" loading="lazy"></a>
+            <div class="flex items-center">
+                <span class="hamburger"><i class="fas fa-bars"></i></span>
+                <span class="close-btn"><i class="fas fa-times"></i></span>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="text-gray-900">Home</a></li>
+                        <li><a href="products.html" class="text-yellow-400">Products</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-900">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Image Container -->
+    <div class="image-container">
+        <img src="backlit sign board.webp" alt="Customized Acrylic Signage 1" class="large-image">
+        <img src="backlit sign board (6).webp" alt="Customized Acrylic Signage 2" class="large-image">
+        <img src="backlit sign board (5).webp" alt="Customized Acrylic Signage 3" class="large-image">
+        <!-- <img src="custoacrylicsignage4.jpg" alt="Customized Acrylic Signage 4" class="large-image"> -->
+    </div>
+
+    <!-- Modal for Enlarged Images -->
+    <div class="modal fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 hidden" id="imageModal">
+        <span class="close-modal text-white cursor-pointer">&times;</span>
+        <div class="modal-content">
+            <span class="modal-nav prev-btn"><i class="fas fa-chevron-left"></i></span>
+            <div class="modal-images" id="modalImages"></div>
+            <span class="modal-nav next-btn"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Leading signage solutions provider with a focus on innovation and quality.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>Email: tamilnadusigns@gmail.com</p>
+                    <p>Phone: +91 99529 88756</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links mt-4">
+                        <a href="https://www.facebook.com/tamilnadusigns/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/919952988756"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/tamilnadu_sign/?hl=en"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 TN Signs. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const closeBtn = document.querySelector('.close-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            hamburger.classList.add('hidden');
+            closeBtn.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('hidden');
+            closeBtn.classList.remove('visible');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('hidden');
+                closeBtn.classList.remove('visible');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Modal Functionality for Enlarged Images
+        function initImageModal() {
+            const images = document.querySelectorAll('.large-image');
+            const modal = document.getElementById('imageModal');
+            const modalImages = document.getElementById('modalImages');
+            const closeModal = document.querySelector('.close-modal');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentImageIndex = 0;
+
+            // Store image data
+            const imageData = Array.from(images).map(img => ({
+                src: img.src,
+                alt: img.alt
+            }));
+
+            function showImage(index) {
+                if (index >= 0 && index < imageData.length) {
+                    currentImageIndex = index;
+                    modalImages.innerHTML = `<img src="${imageData[index].src}" alt="${imageData[index].alt}">`;
+                }
+            }
+
+            images.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    showImage(currentImageIndex);
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
+                showImage(currentImageIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % imageData.length;
+                showImage(currentImageIndex);
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('hidden')) {
+                    if (e.key === 'Escape') {
+                        modal.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        currentImageIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
+                        showImage(currentImageIndex);
+                    } else if (e.key === 'ArrowRight') {
+                        currentImageIndex = (currentImageIndex + 1) % imageData.length;
+                        showImage(currentImageIndex);
+                    }
+                }
+            });
+        }
+
+        // Optional: Add lazy loading
+        const images = document.querySelectorAll('.large-image');
+        images.forEach(img => {
+            img.setAttribute('loading', 'lazy');
+        });
+
+        // Scroll Effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize modal on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            initImageModal();
+        });
+    </script>
+</body>
+</html>

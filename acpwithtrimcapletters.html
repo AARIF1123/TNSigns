@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACP Sign Board with Trimcap Letters | TNSigns Chennai</title>
+    <meta name="description" content=" Upgrade your branding with ACP Sign Boards featuring Trimcap Letters from TNSigns, Chennai. Durable, stylish, and customizable for offices, showrooms, and retail.">
+    <link rel="icon" href="tns logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3W99MFP');</script>
+<!-- End Google Tag Manager -->
+<style>
+    :root {
+        --primary: #ffcc00;
+        --primary-dark: #e6b800;
+        --secondary: #1a1a1a;
+        --accent: #ff5e14;
+        --light: #f8f9fa;
+        --dark: #212529;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: var(--dark);
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Background Decorations */
+    .background-decoration {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        background: radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.1) 0%, transparent 30%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 94, 20, 0.1) 0%, transparent 30%);
+        animation: bgPulse 10s infinite alternate;
+    }
+
+    .decorative-shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: float 15s infinite;
+    }
+
+    .shape-1 {
+        width: 200px;
+        height: 200px;
+        background: var(--primary);
+        top: 10%;
+        left: 5%;
+    }
+
+    .shape-2 {
+        width: 150px;
+        height: 150px;
+        background: var(--accent);
+        top: 60%;
+        right: 10%;
+        animation-delay: 5s;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-30px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes bgPulse {
+        0% { background-size: 100%; }
+        100% { background-size: 120%; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+    }
+
+    /* Header Styles */
+    header {
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    header.scrolled {
+        padding: 0.5rem 0;
+    }
+
+    .logo {
+        transition: all 0.3s ease;
+    }
+
+    .logo.scrolled {
+        height: 50px;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-menu li a {
+        position: relative;
+        padding: 5px 0;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        color: var(--secondary);
+    }
+
+    .nav-menu li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu li a:hover {
+        color: var(--primary);
+    }
+
+    .nav-menu li a:hover::after {
+        width: 100%;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--secondary);
+        z-index: 101;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger:hover {
+        transform: scale(1.1);
+        color: var(--primary);
+    }
+
+    .close-btn {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--secondary);
+        z-index: 101;
+        transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+        transform: rotate(90deg);
+        color: var(--accent);
+    }
+
+    /* Hero Section with Parallax */
+    .hero-section {
+        position: relative;
+        height: 80vh;
+        background: url('newbanaar.png') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: 80px;
+        overflow: hidden;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .hero-content {
+        z-index: 2;
+        max-width: 800px;
+        padding: 2rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .hero-content.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--light);
+    }
+
+    /* Product Details Section */
+    .product-details {
+        padding: 4rem 0;
+        background: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-details .container {
+        max-width: 1200px;
+    }
+
+    .product-details h2 {
+        font-size: 2.8rem;
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .product-details h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+    } 
+
+    .product-details p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .product-details p.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, rgba(255, 204, 0, 0.1), rgba(255, 94, 20, 0.1));
+    }
+
+    .gallery-section .intro {
+        max-width: 1200px;
+        margin: 0 auto 2rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: left;
+    }
+
+    .gallery-section .intro h3 {
+        font-size: 2rem;
+        color: var(--secondary);
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .gallery-section .intro p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .gallery-section .intro ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-section .intro ul li {
+        margin-bottom: 0.5rem;
+        color: #444;
+    }
+
+    .gallery-section .intro .highlight {
+        font-weight: 500;
+        color: var(--primary);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 4rem 0;
+        text-align: center;
+        background: var(--primary);
+        color: var(--secondary);
+    }
+
+    .cta-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--dark);
+    }
+
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: var(--accent);
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button i {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Footer Styles */
+    footer {
+        background: var(--secondary);
+        color: white;
+        padding: 60px 0 30px;
+    }
+
+    .footer-col h3 {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary);
+    }
+
+    .footer-col p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+        color: #bbb;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+        color: #bbb;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .footer-col ul li a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+    }
+
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #333;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+    }
+
+    .newsletter-form {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        outline: none;
+    }
+
+    .newsletter-form button {
+        background: var(--primary);
+        color: var(--secondary);
+        border: none;
+        padding: 0 15px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+
+    .newsletter-form button:hover {
+        background: var(--accent);
+        color: white;
+    }
+
+    .copyright {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 40px;
+        border-top: 1px solid #333;
+        color: #999;
+        font-size: 0.9rem;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal-content {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        max-width: 95vw;
+        max-height: 95vh;
+        width: auto;
+        height: auto;
+        position: relative;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .close-modal {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        font-size: 40px;
+        cursor: pointer;
+        color: white;
+        z-index: 1001;
+        background: rgba(0, 0, 0, 0.5);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
+    }
+
+    .modal-images img {
+        max-width: 90vw;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Navigation Buttons for Modal */
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1002;
+    }
+
+    .modal-nav:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn {
+        left: 20px;
+    }
+
+    .next-btn {
+        right: 20px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            flex-direction: column;
+            padding: 80px 30px 30px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            z-index: 100;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
+        .close-btn {
+            display: block;
+        }
+
+        .nav-menu li a {
+            color: var(--secondary);
+            display: block;
+            padding: 12px 0;
+            font-weight: 600;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            height: 60vh;
+            background-attachment: scroll; /* Disable parallax on mobile */
+            background-position: center center;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+
+        .hero-content p {
+            font-size: 0.9rem;
+        }
+
+        .product-details h2 {
+            font-size: 2rem;
+        }
+
+        .gallery-section .intro {
+            padding: 1.5rem;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-item img {
+            height: 300px;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-content h1 {
+            font-size: 1.8rem;
+        }
+
+        .hero-content p {
+            font-size: 0.85rem;
+        }
+
+        .product-details h2 {
+            font-size: 1.8rem;
+        }
+
+        .product-details p {
+            font-size: 1rem;
+        }
+
+        .gallery-section .intro h3 {
+            font-size: 1.5rem;
+        }
+
+        .gallery-section .intro p {
+            font-size: 0.9rem;
+        }
+
+        .gallery-item img {
+            height: 250px;
+        }
+
+        .cta-button {
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3W99MFP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- Background Decorations -->
+    <div class="background-decoration">
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-shape shape-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"><img src="tns logo.png" alt="TN Signs Logo" class="logo h-16 transition-all duration-300" loading="lazy"></a>
+            <div class="flex items-center">
+                <span class="hamburger"><i class="fas fa-bars"></i></span>
+                <nav>
+                    <ul class="nav-menu">
+                        <span class="close-btn"><i class="fas fa-times"></i></span>
+                        <li><a href="index.html" class="text-gray-900">Home</a></li>
+                        <li><a href="products.html" class="text-yellow-400">Products</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-900">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>ACP with Trimcap Letter Board</h1>
+            <p>Elevate your brand with our premium ACP with Trimcap Letter Boards, combining sleek design, durability, and vibrant LED illumination.</p>
+            <a href="contact.html" class="cta-button">Get a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="product-details">
+        <div class="container mx-auto px-4">
+            <h2>Why Choose ACP with Trimcap Letter Boards?</h2>
+            <p>Our ACP with Trimcap Letter Boards are crafted to make your brand stand out. Combining Aluminum Composite Panels (ACP) with precision-cut trimcap letters, these boards offer a modern, professional look that’s perfect for storefronts, offices, and commercial spaces. The trimcap design allows for vibrant LED backlighting, ensuring your signage is eye-catching day or night.</p>
+            <p>Key features include:
+                <ul class="list-disc list-inside my-4 text-gray-600">
+                    <li><strong>Durable Construction</strong>: Made with high-quality ACP for weather resistance and longevity.</li>
+                    <li><strong>Customizable Design</strong>: Available in various colors, fonts, and sizes to match your brand identity.</li>
+                    <li><strong>LED Illumination</strong>: Optional LED backlighting for enhanced visibility in low-light conditions.</li>
+                    <li><strong>Low Maintenance</strong>: Easy to clean and maintain, ensuring a polished look over time.</li>
+                </ul>
+            </p>
+            <p>Whether you’re a retail business, a corporate office, or a restaurant, our ACP with Trimcap Letter Boards deliver a bold first impression that attracts customers and reinforces your brand.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Explore Our ACP with Trimcap Letter Boards</h2>
+            <div class="intro">
+                <h3>About ACP Sign Boards</h3>
+                <p>An ACP sign board is one of the most popular choices for modern business branding. ACP stands for Aluminium Composite Panel, which is known for its strength, durability, and sleek finish. When combined with Trimcap letters, the board creates a stylish 3D look that makes any brand name stand out. Businesses prefer ACP sign boards because they are weather-resistant, lightweight, and provide a premium appearance at an affordable cost.</p>
+                <p>If you are looking to make your storefront or office more attractive, an ACP sign board with Trimcap letters is a perfect solution.</p>
+                <p><strong>Features of ACP Sign Boards with Trimcap Letters:</strong></p>
+                <ul>
+                    <li>Made with high-quality Aluminium Composite Panel for durability.</li>
+                    <li>Trimcap letters give a 3D and colorful border effect.</li>
+                    <li>Suitable for shops, showrooms, restaurants, offices, and malls.</li>
+                    <li>Weather-resistant and long-lasting – perfect for outdoor branding.</li>
+                    <li>Lightweight and easy to install compared to traditional boards.</li>
+                    <li>Provides a modern, premium look that catches customer attention.</li>
+                </ul>
+                <p class="highlight">An ACP sign board is not just a display – it’s a branding investment. Whether you want to highlight your logo, store name, or promotional message, this type of board ensures visibility both day and night.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="acp acrylic sign board.webp" alt="ACP with Trimcap Letter Board Example 1">
+                </div>
+                <!-- <div class="gallery-item">
+                    <img src="acptrimcap1.webp" alt="ACP with Trimcap Letter Board Example 2">
+                </div> -->
+                <div class="gallery-item">
+                    <img src="acptrim3.webp" alt="ACP with Trimcap Letter Board Example 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim4.webp" alt="ACP with Trimcap Letter Board Example 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim5.webp" alt="ACP with Trimcap Letter Board Example 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim6.webp" alt="ACP with Trimcap Letter Board Example 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim7.webp" alt="ACP with Trimcap Letter Board Example 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim8.webp" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim1.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrim2.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew4.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew5.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew6.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew7.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew8.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew23.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew9.jpg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                 <div class="gallery-item">
+                    <img src="acptrimnew10.jpg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew11.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="acptrimnew12.jpeg" alt="ACP with Trimcap Letter Board Example 8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container mx-auto px-4">
+            <h2>Ready to Transform Your Brand’s Presence?</h2>
+            <p>Contact us today to discuss your ACP with Trimcap Letter Board needs and get a customized solution.</p>
+            <a href="contact.html" class="cta-button">Contact Us Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Leading signage solutions provider with a focus on innovation and quality.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>Email: tamilnadusigns@gmail.com</p>
+                    <p>Phone: +91 99529 88756</p>
+                </div>
+                <div class="footer-col">
+                    <!-- <h3>Newsletter</h3>
+                    <p>Subscribe for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form> -->
+                    <div class="social-links mt-4">
+                        <a href="https://www.facebook.com/tamilnadusigns/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/919952988756"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/tamilnadu_sign/?hl=en"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 TN Signs. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Modal for Enlarged Images -->
+    <div class="modal fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 hidden" id="productModal">
+        <span class="close-modal text-white cursor-pointer">&times;</span>
+        <div class="modal-content">
+            <span class="modal-nav prev-btn"><i class="fas fa-chevron-left"></i></span>
+            <div class="modal-images" id="modalImages"></div>
+            <span class="modal-nav next-btn"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Scroll Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.hero-content, .product-details p, .gallery-item, .intro');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+
+        // Parallax Effect for Hero Section
+        function initParallax() {
+            const heroSection = document.querySelector('.hero-section');
+            // Skip parallax on mobile devices
+            if (window.innerWidth <= 768) return;
+
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                const offset = scrollPosition * 0.3; // Adjust parallax speed
+                heroSection.style.backgroundPositionY = `${offset}px`;
+            });
+        }
+
+        // Modal Functionality for Enlarged Images
+        function initProductModal() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modal = document.getElementById('productModal');
+            const modalImages = document.getElementById('modalImages');
+            const closeModal = document.querySelector('.close-modal');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentImageIndex = 0;
+
+            // Store gallery images data
+            const images = Array.from(galleryItems).map(item => ({
+                src: item.querySelector('img').src,
+                alt: item.querySelector('img').alt
+            }));
+
+            function showImage(index) {
+                if (index >= 0 && index < images.length) {
+                    currentImageIndex = index;
+                    modalImages.innerHTML = `<img src="${images[index].src}" alt="${images[index].alt}">`;
+                }
+            }
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    showImage(currentImageIndex);
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                showImage(currentImageIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                showImage(currentImageIndex);
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('hidden')) {
+                    if (e.key === 'Escape') {
+                        modal.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        showImage(currentImageIndex);
+                    } else if (e.key === 'ArrowRight') {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        showImage(currentImageIndex);
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initParallax();
+            initProductModal();
+        });
+
+        // Scroll Effects for Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

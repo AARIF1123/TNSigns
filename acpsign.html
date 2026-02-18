@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="LED Sign Board in Chennai | TNSigns">
+    <meta name="description" content="TNSigns offers premium LED sign boards in Chennai. Durable, attractive, and customized LED signage to make your business stand out. Get noticed today!">
+     <link rel="icon" href="tns logo.png" type="image/x-icon">
+    <title>Customized LED Sign Boards | TN Signs - Professional LED Solutions in Chennai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3W99MFP');</script>
+<!-- End Google Tag Manager -->
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004d99;
+            --secondary: #1a1a1a;
+            --accent: #ff5e14;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        /* Background Decorations */
+        .background-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 102, 204, 0.05) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 94, 20, 0.05) 0%, transparent 30%);
+            animation: bgPulse 15s infinite alternate;
+        }
+
+        .decorative-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--accent);
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .shape-3 {
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+
+        .shape-4 {
+            width: 180px;
+            height: 180px;
+            background: var(--accent);
+            top: 20%;
+            right: 20%;
+            animation-delay: 9s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(5deg); }
+            66% { transform: translateY(15px) rotate(-5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes bgPulse {
+            0% { background-size: 100%; opacity: 0.7; }
+            50% { background-size: 120%; opacity: 1; }
+            100% { background-size: 100%; opacity: 0.7; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(0, 102, 204, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 102, 204, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(0, 102, 204, 0.3); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header Styles */
+        header {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo.scrolled {
+            height: 50px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu li a {
+            position: relative;
+            padding: 5px 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+            color: var(--primary);
+        }
+
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--secondary);
+            z-index: 101;
+            transition: all 0.5s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: var(--accent);
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin: 120px 0 50px;
+            position: relative;
+            padding: 3rem 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .page-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .page-title:hover h1::after {
+            width: 180px;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Content Section Styles */
+        .content-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .content-section h2:hover::after {
+            width: 150px;
+        }
+
+        .content-section p, .content-section li {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .content-section ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 2rem 0;
+        }
+
+        .content-section ul li {
+            margin-bottom: 1.5rem;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        /* Enhanced Icons for "Why Choose LED Sign Boards" */
+        .content-section ul li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.8rem;
+            top: 0;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 102, 204, 0.08);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .content-section ul li:hover::before {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .content-section ul li:nth-child(1)::before {
+            content: '\f06e'; /* Eye icon for visibility */
+        }
+
+        .content-section ul li:nth-child(2)::before {
+            content: '\f0e7'; /* Bolt icon for energy efficiency */
+        }
+
+        .content-section ul li:nth-child(3)::before {
+            content: '\f5fc'; /* Palette icon for customization */
+        }
+
+        .content-section ul li:nth-child(4)::before {
+            content: '\f7d9'; /* Tools icon for installation */
+        }
+
+        /* Enhanced Icons for "Applications of LED Sign Boards" */
+        .content-section ul.applications-list li:nth-child(1)::before {
+            content: '\f54e'; /* Store icon for retail */
+        }
+
+        .content-section ul.applications-list li:nth-child(2)::before {
+            content: '\f2e7'; /* Utensils icon for restaurants */
+        }
+
+        .content-section ul.applications-list li:nth-child(3)::before {
+            content: '\f07a'; /* Shopping cart icon for malls */
+        }
+
+        .content-section ul.applications-list li:nth-child(4)::before {
+            content: '\f1ad'; /* Building icon for corporate offices */
+        }
+
+        .content-section ul.applications-list li:nth-child(5)::before {
+            content: '\f0f8'; /* Hospital icon for clinics */
+        }
+
+        .content-section ul.applications-list li:nth-child(6)::before {
+            content: '\f19d'; /* Graduation cap icon for schools */
+        }
+
+        /* Animation Classes for Sequential Reveal */
+        .animate-from-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-from-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* LED Animation Demo */
+        .led-demo {
+            width: 100%;
+            height: 100px;
+            background: #111;
+            border-radius: 8px;
+            margin: 2rem 0;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .led-text {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            animation: runText 15s linear infinite;
+        }
+
+        @keyframes runText {
+            0% { transform: translateX(100%) translateY(-50%); }
+            100% { transform: translateX(-100%) translateY(-50%); }
+        }
+
+        /* LED Sign Board Images Section */
+        .led-images {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .led-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .led-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .led-image:hover {
+            transform: scale(1.03);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .faq-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .faq-section h2:hover::after {
+            width: 120px;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-item h3::before {
+            content: 'Q: ';
+            color: var(--primary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .faq-item p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.7;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .faq-item p::before {
+            content: 'A: ';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,102,204,0.08) 0%, rgba(255,94,20,0.08) 100%);
+            z-index: -1;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+        }
+
+        .cta-button i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            animation: shimmer 3s infinite linear;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.5s ease;
+        }
+
+        .footer-col:hover h3::after {
+            width: 80px;
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: #bbb;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 100;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .close-btn {
+                display: none;
+            }
+
+            .nav-menu.active .hamburger {
+                display: none;
+            }
+
+            .nav-menu.active .close-btn {
+                display: block;
+            }
+
+            .nav-menu li a {
+                color: var(--secondary);
+                display: block;
+                padding: 12px 0;
+                font-weight: 600;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-title p {
+                font-size: 1.1rem;
+            }
+
+            .content-section, .faq-section, .led-images {
+                padding: 2rem;
+            }
+
+            .content-section h2, .faq-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .led-images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .led-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                margin: 100px 0 40px;
+                padding: 2rem 1rem;
+            }
+
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section, .faq-section, .led-images {
+                padding: 1.5rem;
+            }
+
+            .content-section h2, .faq-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .content-section ul li {
+                padding-left: 50px;
+            }
+
+            .content-section ul li::before {
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .footer-col {
+                margin-bottom: 40px;
+            }
+
+            .decorative-shape {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3W99MFP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- Background Decorations -->
+    <div class="background-decoration">
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-shape shape-2"></div>
+        <div class="decorative-shape shape-3"></div>
+        <div class="decorative-shape shape-4"></div>
+    </div>
+
+    <!-- Header -->
+    <header data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="tns logo.png" alt="TN Signs Logo" class="logo h-16 transition-all duration-300" loading="lazy">
+            <div class="flex items-center">
+                <span class="hamburger"><i class="fas fa-bars"></i></span>
+                <nav>
+                    <ul class="nav-menu">
+                        <span class="close-btn"><i class="fas fa-times"></i></span>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <div class="container mx-auto px-4">
+            <h1>Professional LED Sign Boards</h1>
+            <p>Premium LED Solutions to Elevate Your Business Presence in Chennai</p>
+        </div>
+    </section>
+
+    <!-- LED Animation Demo -->
+    <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        <div class="led-demo">
+            <div class="led-text">TN SIGNS | PREMIUM LED SIGN BOARDS | CUSTOM DESIGNS | PROFESSIONAL INSTALLATION</div>
+        </div>
+    </div>
+
+    <!-- Content Section with Sequential Animations -->
+    <section class="content-section">
+        <div class="container mx-auto px-4">
+            <h2 class="animate-from-right">LED Sign Boards in Chennai – Brighten Your Brand</h2>
+            <p class="animate-from-left">In today's competitive market, standing out in Chennai's bustling streets is a challenge. Every shop and brand is vying for attention. That's where LED sign boards in Chennai make a significant impact. They are bright, modern, and instantly draw attention to your business. Whether you run a café, a clothing store, or a clinic, an LED sign board can transform how people perceive your brand.</p>
+            <p class="animate-from-right">Unlike traditional name boards, LED signs don't just sit quietly—they shine, speak for your brand, and remain vibrant day and night. Best of all, the LED sign board price in Chennai is highly competitive, offering excellent visibility without breaking the bank.</p>
+
+            <h2 class="animate-from-left">Why Choose LED Sign Boards?</h2>
+            <ul>
+                <li class="animate-from-right"><strong>Maximum Visibility and Durability:</strong> LED signs in Chennai are designed to shine brightly, even in crowded areas like T. Nagar or Anna Nagar. They are weather-proof, standing strong against rain, dust, and heat, ensuring a one-time investment with long-term benefits.</li>
+                <li class="animate-from-left"><strong>Energy-Efficient and Cost-Effective:</strong> Contrary to common belief, LED signs consume less energy than traditional tube lights or neon boards. The savings on electricity often offset the LED sign board price in Chennai over time.</li>
+                <li class="animate-from-right"><strong>Custom Designs for Every Business:</strong> No two businesses are alike, and neither should their signage be. LED sign board manufacturers in Chennai offer a variety of options—colors, shapes, fonts, logos, and even programmable boards for displaying offers and promotions.</li>
+                <li class="animate-from-left"><strong>Professional Installation and Support:</strong> From design to installation, LED sign board providers in Chennai handle everything. Quick, local support ensures any issues are resolved promptly.</li>
+            </ul>
+
+            <h2 class="animate-from-right">Applications of LED Sign Boards</h2>
+            <p class="animate-from-left">LED sign boards are versatile and can be used in various settings, including:</p>
+            <ul class="applications-list">
+                <li class="animate-from-right"><strong>Retail stores and fashion outlets</strong></li>
+                <li class="animate-from-left"><strong>Restaurants, cafes, and bakeries</strong></li>
+                <li class="animate-from-right"><strong>Shopping malls and multiplexes</strong></li>
+                <li class="animate-from-left"><strong>Corporate offices</strong></li>
+                <li class="animate-from-right"><strong>Clinics and hospitals</strong></li>
+                <li class="animate-from-left"><strong>Schools, colleges, and training centers</strong></li>
+            </ul>
+            <p class="animate-from-right">Whether you're running a large enterprise or a small shop, LED signs in Chennai add that extra glow to your branding.</p>
+
+            <h2 class="animate-from-left">Why Choose Us?</h2>
+            <p class="animate-from-right">We are among the trusted LED sign board manufacturers in Chennai, with years of hands-on experience. Our focus on quality and timely delivery sets us apart. We understand that customers worry about boards looking cheap or not lasting long, and we ensure that doesn't happen. From selecting the perfect design to flawless installation, our team handles it all. Our LED sign board price in Chennai is affordable, enabling even small businesses to shine brightly.</p>
+        </div>
+    </section>
+
+    <!-- LED Sign Board Images Section -->
+    <section class="led-images" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <div class="container mx-auto px-4">
+            <h2>Our LED Sign Board Designs</h2>
+            <div class="led-images-grid mt-4">
+                <img src="sssurgical_resized.jpg" alt="LED Sign 1" class="led-image">
+                <img src="addictled_resized.jpg" alt="LED Sign 2" class="led-image">
+                <img src="nathanled.jpg" alt="LED Sign 3" class="led-image">
+                <img src="ministryled.jpg" alt="LED Sign 4" class="led-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+        <div class="container mx-auto px-4">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-item">
+                <h3>How long do LED sign boards last?</h3>
+                <p>With proper care, LED sign boards typically last between 5–7 years.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Are they expensive in Chennai?</h3>
+                <p>Not really. The LED sign board price in Chennai is competitive, and the high energy savings make it very cost-effective.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I customize the board design?</h3>
+                <p>Yes, almost everything can be customized—colors, size, logo, fonts, and even programmable messages.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do you provide installation across Chennai?</h3>
+                <p>Yes, our team covers most areas, providing end-to-end support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
+        <div class="container mx-auto px-4">
+            <a href="contact.html" class="cta-button">Request a Quote for Professional LED Signage <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="footer-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+                    <h3>About Us</h3>
+                    <p>Leading signage solutions provider with a focus on innovation and quality.</p>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="900">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1000">
+                    <h3>Contact Us</h3>
+                    <p>Email: tamilnadusigns@gmail.com</p>
+                    <p>Phone: +91 99529 88756</p>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1100">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links mt-4">
+                        <a href="https://www.facebook.com/tamilnadusigns"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://web.whatsapp.com/send?phone=919952988756"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/tamilnadu_sign"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 TN Signs. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-in-out',
+            offset: 100,
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const closeBtn = document.querySelector('.close-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            hamburger.style.display = 'none';
+            closeBtn.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            closeBtn.style.display = 'none';
+            hamburger.style.display = 'block';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close menu when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                closeBtn.style.display = 'none';
+                hamburger.style.display = 'block';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        const logo = document.querySelector('.logo');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                logo.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+                logo.classList.remove('scrolled');
+            }
+        });
+
+        // Sequential animation for content sections
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-from-right, .animate-from-left, .animate-from-bottom');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate-visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input[type="email"]');
+                alert(`Thank you for subscribing with: ${emailInput.value}`);
+                emailInput.value = '';
+            });
+        }
+
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item h3');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const content = item.nextElementSibling;
+                const isVisible = content.style.display === 'block';
+                document.querySelectorAll('.faq-item p').forEach(p => {
+                    p.style.display = 'none';
+                });
+                if (!isVisible) {
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // Initialize all FAQ answers as hidden
+        document.querySelectorAll('.faq-item p').forEach(p => {
+            p.style.display = 'none';
+        });
+
+        // Image slider for LED images
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.led-image');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.display = 'none');
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            slides[currentSlide].style.display = 'block';
+        }
+
+        // Initialize slider for mobile view
+        function initSlider() {
+            if (window.innerWidth < 768 && totalSlides > 0) {
+                const grid = document.querySelector('.led-images-grid');
+                grid.style.display = 'block';
+                grid.style.position = 'relative';
+
+                // Add navigation arrows
+                const prevButton = document.createElement('button');
+                prevButton.innerHTML = '&#10094;';
+                prevButton.style.position = 'absolute';
+                prevButton.style.left = '10px';
+                prevButton.style.top = '50%';
+                prevButton.style.transform = 'translateY(-50%)';
+                prevButton.style.zIndex = '10';
+                prevButton.style.background = 'rgba(0,0,0,0.5)';
+                prevButton.style.color = 'white';
+                prevButton.style.border = 'none';
+                prevButton.style.padding = '10px';
+                prevButton.style.borderRadius = '50%';
+                prevButton.style.cursor = 'pointer';
+
+                const nextButton = document.createElement('button');
+                nextButton.innerHTML = '&#10095;';
+                nextButton.style.position = 'absolute';
+                nextButton.style.right = '10px';
+                nextButton.style.top = '50%';
+                nextButton.style.transform = 'translateY(-50%)';
+                nextButton.style.zIndex = '10';
+                nextButton.style.background = 'rgba(0,0,0,0.5)';
+                nextButton.style.color = 'white';
+                nextButton.style.border = 'none';
+                nextButton.style.padding = '10px';
+                nextButton.style.borderRadius = '50%';
+                nextButton.style.cursor = 'pointer';
+
+                grid.appendChild(prevButton);
+                grid.appendChild(nextButton);
+
+                // Event listeners for navigation
+                prevButton.addEventListener('click', () => {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                });
+
+                nextButton.addEventListener('click', () => {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                });
+
+                // Initialize first slide
+                showSlide(currentSlide);
+            } else {
+                const grid = document.querySelector('.led-images-grid');
+                if (grid) {
+                    grid.style.display = 'grid';
+                    slides.forEach(slide => slide.style.display = 'block');
+                    const buttons = grid.querySelectorAll('button');
+                    buttons.forEach(button => button.remove());
+                }
+            }
+        }
+
+        // Initialize slider on load and resize
+        window.addEventListener('load', initSlider);
+        window.addEventListener('resize', initSlider);
+    </script>
+</body>
+</html>
