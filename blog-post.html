@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TN Signs Blog - Post</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {font-family:'Poppins',sans-serif;margin:0;background:#f9f9f9;color:#333}
+    header {position:fixed;top:0;width:100%;background:#fff;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:15px 0}
+    .container {max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+    .logo {height:70px}
+    nav ul {list-style:none;display:flex;gap:30px;margin:0}
+    nav a {text-decoration:none;color:#333;font-weight:500}
+    nav a:hover, nav a.active {color:#ff6b35}
+    .content {max-width:800px;margin:120px auto 80px;padding:0 20px}
+    .post-title {font-size:2.5rem;color:#ff6b35;margin-bottom:20px}
+    .post-meta {color:#888;margin-bottom:30px;font-size:1.1rem}
+    .post-image {width:100%;max-height:500px;object-fit:cover;border-radius:15px;margin:30px 0}
+    .post-body {font-size:1.15rem;line-height:1.8;color:#444}
+    .post-body p {margin-bottom:20px}
+    .back-btn {display:inline-block;background:#ff6b35;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;margin-top:40px}
+    .back-btn:hover {background:#e55a2b}
+    .loading {text-align:center;padding:100px;font-size:1.3rem;color:#888}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <img src="tns logo.png" alt="TN Signs" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Product</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="content">
+  <div id="postContent" class="loading">Loading post...</div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDZRd6tWvH6bI2yJbXO0Xa7Q95f2tZ55QY",
+    authDomain: "tnsigns-blog.firebaseapp.com",
+    projectId: "tnsigns-blog",
+    storageBucket: "tnsigns-blog.firebasestorage.app",
+    messagingSenderId: "183017072452",
+    appId: "1:183017072452:web:c1744cd7545e4180771911"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get('id');
+
+  if (!postId) {
+    document.getElementById('postContent').innerHTML = '<p>No post selected.</p>';
+  } else {
+    const docRef = doc(db, "blogs", postId);
+    getDoc(docRef).then((docSnap) => {
+      if (docSnap.exists()) {
+        const p = docSnap.data();
+        const date = p.date ? new Date(p.date.seconds*1000).toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'}) : 'Recently';
+
+        document.getElementById('postContent').innerHTML = `
+          <h1 class="post-title">${p.title}</h1>
+          <div class="post-meta">${date} • ${p.category ? p.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()) : ''}</div>
+          ${p.image ? `<img src="${p.image}" alt="${p.title}" class="post-image">` : ''}
+          <div class="post-body">${p.body.replace(/\n/g, '<br>')}</div>
+          <a href="blog.html" class="back-btn">← Back to Blog</a>
+        `;
+      } else {
+        document.getElementById('postContent').innerHTML = '<p>Post not found.</p>';
+      }
+    }).catch(() => {
+      document.getElementById('postContent').innerHTML = '<p>Error loading post.</p>';
+    });
+  }
+</script>
+
+</body>
+</html>
