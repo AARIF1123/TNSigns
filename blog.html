@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TN Signs Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {font-family:'Poppins',sans-serif;margin:0;background:#f9f9f9;color:#333}
+    header {position:fixed;top:0;width:100%;background:#fff;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:15px 0}
+    .container {max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+    .logo {height:70px}
+    nav ul {list-style:none;display:flex;gap:30px;margin:0}
+    nav a {text-decoration:none;color:#333;font-weight:500}
+    nav a:hover, nav a.active {color:#ff6b35}
+    .hero {background:linear-gradient(135deg,#fff3e0,#ffe0b2);padding:120px 20px 80px;text-align:center}
+    .hero h1 {font-size:3rem;color:#ff6b35}
+    .filters {display:flex;justify-content:center;gap:15px;margin:40px 0;flex-wrap:wrap}
+    .filter-btn {padding:10px 20px;border-radius:30px;border:none;background:#ffeb99;color:#333;font-weight:600;cursor:pointer}
+    .filter-btn.active, .filter-btn:hover {background:#ffcc00}
+    .blog-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;max-width:1200px;margin:0 auto;padding:0 20px}
+    .post-card {background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:0.3s}
+    .post-card:hover {transform:translateY(-10px)}
+    .post-card img {width:100%;height:220px;object-fit:cover}
+    .post-info {padding:20px}
+    .post-info h3 {margin:0 0 10px;font-size:1.4rem;color:#ff6b35}
+    .post-meta {color:#888;font-size:0.9rem;margin-bottom:10px}
+    .excerpt {color:#555;line-height:1.6}
+    .read-more {color:#ff6b35;font-weight:600;text-decoration:none}
+    .read-more:hover {text-decoration:underline}
+    @media(max-width:992px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.blog-grid{grid-template-columns:1fr}.filters{gap:10px}}
+    .no-posts {text-align:center;padding:80px;font-size:1.3rem;color:#888}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <img src="tns logo.png" alt="TN Signs" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Product</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>TN Signs Blog</h1>
+  <p>Explore the latest trends, tips, and insights on signage solutions from Chennai’s leading sign board manufacturers.</p>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" data-category="all">All Posts</button>
+  <button class="filter-btn" data-category="signage-solutions">Signage Solutions</button>
+  <button class="filter-btn" data-category="led-signs">LED Sign Boards</button>
+  <button class="filter-btn" data-category="acp-signage">ACP Signage</button>
+  <button class="filter-btn" data-category="neon-signs">Neon Signs</button>
+  <button class="filter-btn" data-category="business-branding">Business Branding</button>
+</div>
+
+<div class="blog-grid" id="postsContainer">
+  <p style="grid-column:1/-1;text-align:center;padding:50px;font-size:1.2rem;color:#666">Loading latest posts...</p>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDZRd6tWvH6bI2yJbXO0Xa7Q95f2tZ55QY",
+    authDomain: "tnsigns-blog.firebaseapp.com",
+    projectId: "tnsigns-blog",
+    storageBucket: "tnsigns-blog.firebasestorage.app",
+    messagingSenderId: "183017072452",
+    appId: "1:183017072452:web:c1744cd7545e4180771911"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const postsContainer = document.getElementById('postsContainer');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  async function loadPosts(category = "all") {
+    postsContainer.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:50px;color:#666">Loading latest posts...</p>';
+    
+    try {
+      const q = query(collection(db, "blogs"), orderBy("date", "desc"));
+      const snapshot = await getDocs(q);
+      const posts = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+
+      const filtered = category === "all" ? posts : posts.filter(p => p.category === category);
+
+      if (filtered.length === 0) {
+        postsContainer.innerHTML = '<p class="no-posts">No posts found in this category yet.</p>';
+        return;
+      }
+
+      postsContainer.innerHTML = filtered.map(post => `
+        <a href="blog-post.html?id=${post.id}" class="post-card" style="text-decoration:none;color:inherit">
+          ${post.image ? `<img src="${post.image}" alt="${post.title}" loading="lazy">` : '<div style="height:220px;background:#eee;display:flex;align-items:center;justify-content:center;color:#999"><i class="fas fa-image fa-4x"></i></div>'}
+          <div class="post-info">
+            <h3>${post.title}</h3>
+            <div class="post-meta">
+              ${post.date ? new Date(post.date.seconds*1000).toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'}) : 'Recently'}
+              • ${formatCategory(post.category || "general")}
+            </div>
+            <p class="excerpt">${post.excerpt || post.body.substring(0,120)+'...'}</p>
+            <span class="read-more">Read More →</span>
+          </div>
+        </a>
+      `).join('');
+
+    } catch (err) {
+      postsContainer.innerHTML = '<p class="no-posts">Error loading posts. Please try again later.</p>';
+    }
+  }
+
+  function formatCategory(cat) {
+    return cat.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      loadPosts(btn.dataset.category);
+    });
+  });
+
+  loadPosts(); // Load all posts on page load
+</script>
+
+</body>
+</html>

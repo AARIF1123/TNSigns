@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients | TN Signs - Leading Sign Board Manufacturers in Chennai</title>
+    <meta name="description" content="Trusted by top brands across Chennai and Tamil Nadu. See who trusts TN Signs for their signage needs.">
+    <link rel="icon" href="tns logo.png" type="image/x-icon">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --primary-dark: #e6b800;
+            --secondary: #1a1a1a;
+            --accent: #ff5e14;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background:#fff;
+            color:var(--dark);
+            line-height:1.6;
+        }
+
+        /* Header */
+        header {
+            position:fixed; top:0; left:0; right:0; z-index:1000;
+            background:rgba(255,255,255,0.95);
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            transition:all 0.3s;
+        }
+        .container { max-width:1200px; margin:auto; padding:0 20px; }
+        .header-container { display:flex; justify-content:space-between; align-items:center; padding:15px 0; }
+        .logo { height:80px; transition:height 0.3s; }
+        .nav-menu { display:flex; gap:35px; list-style:none; }
+        .nav-menu a { color:var(--secondary); text-decoration:none; font-weight:500; position:relative; transition:color 0.3s; }
+        .nav-menu a:hover { color:var(--primary); }
+        .nav-menu a::after { content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--primary); transition:width 0.3s; }
+        .nav-menu a:hover::after { width:100%; }
+
+        /* Hero Banner */
+        .page-hero {
+            height:400px; background:var(--primary); position:relative; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--secondary); margin-top:90px;
+        }
+        .page-hero h1 { font-family:'Playfair Display', serif; font-size:5rem; font-weight:700; opacity:0.15; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
+        .page-hero .breadcrumb { font-size:1.1rem; text-transform:uppercase; letter-spacing:2px; z-index:2; }
+        .page-hero .breadcrumb a { color:var(--secondary); text-decoration:none; }
+        .page-hero .breadcrumb a:hover { color:var(--accent); }
+
+        /* Clients Section */
+        .clients-section {
+            padding:140px 0 120px;
+            background:#fff;
+            color:#333;
+        }
+        .section-title {
+            text-align:center;
+            margin-bottom:90px;
+        }
+        .section-title h2 {
+            font-family:'Playfair Display', serif;
+            font-size:3.2rem;
+            margin-bottom:15px;
+            position:relative;
+            display:inline-block;
+            color:var(--secondary);
+        }
+        .section-title h2::after {
+            content:'';
+            position:absolute;
+            bottom:-15px; left:50%;
+            transform:translateX(-50%);
+            width:120px; height:5px;
+            background:var(--primary);
+        }
+        .section-title p {
+            max-width:750px;
+            margin:25px auto 0;
+            color:#666;
+            font-size:1.15rem;
+        }
+
+        /* BIGGER & WIDER CLIENT LOGO BOXES */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 70px 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .client-logo {
+            background: #fff;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 18px;
+            height: 200px;                    /* Increased height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .client-logo:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(255,204,0,0.2);
+            transform: translateY(-12px);
+        }
+
+        .client-logo img {
+            max-width: 88%;
+            max-height: 88%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .client-logo:hover img {
+            transform: scale(1.12);
+        }
+
+        /* Footer */
+        footer { background:var(--secondary); color:#ddd; padding:80px 0 30px; }
+        .footer-content { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:40px; max-width:1200px; margin:auto; padding:0 20px; }
+        .footer-logo { height:80px; margin-bottom:20px; }
+        .social-links a { color:var(--primary); font-size:1.4rem; margin-right:15px; transition:color 0.3s; }
+        .social-links a:hover { color:#fff; }
+        .footer-bottom { text-align:center; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); margin-top:50px; font-size:0.9rem; color:#999; }
+
+        /* Responsive - Bigger on all devices */
+        @media (max-width: 1200px) {
+            .clients-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 60px 40px;
+            }
+            .client-logo { height: 180px; padding: 35px; }
+        }
+        @media (max-width: 992px) {
+            .clients-grid { 
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+                padding: 0 30px;
+            }
+            .client-logo { height: 170px; }
+        }
+        @media (max-width: 768px) {
+            .clients-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 45px;
+            }
+            .client-logo { height: 160px; padding: 30px; }
+        }
+        @media (max-width: 576px) {
+            .clients-grid { 
+                grid-template-columns: 1fr 1fr;
+                gap: 35px;
+                padding: 0 20px;
+            }
+            .client-logo { height: 140px; padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html"><img src="tns logo.png" alt="TN Signs Logo" class="logo"></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="clients.html">Clients</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-hero">
+        <h1>CLIENTS</h1>
+        <div class="breadcrumb">
+            <a href="index.html">HOME</a> / OUR CLIENTS
+        </div>
+    </section>
+
+    <!-- Clients Section - BIGGER LOGO BOXES -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Valued Clients</h2>
+                <p>Over 1000+ businesses across Tamil Nadu trust TN Signs for premium signage solutions</p>
+            </div>
+
+            <div class="clients-grid">
+                <div class="client-logo"><img src="baskin robbins.png" alt="Baskin Robbins"></div>
+                <div class="client-logo"><img src="8mm-agni-tmt-bars.png" alt="Amtek"></div>
+                <div class="client-logo"><img src="Aachi.jpg" alt="Amway"></div>
+                <div class="client-logo"><img src="Bisleri_5ltr_2-1737444130103.png" alt="Ensel"></div>
+                <div class="client-logo"><img src="brandmarketers_logo.jpg" alt="Ashok Leyland"></div>
+                <div class="client-logo"><img src="c1674687-logo.png" alt="Birlasoft"></div>
+                <div class="client-logo"><img src="download.png" alt="Convergys"></div>
+                <div class="client-logo"><img src="download (1).png" alt="Educomp"></div>
+                <div class="client-logo"><img src="green-trends-logo-png_seeklogo-248899.png" alt="DLF Building India"></div>
+                <div class="client-logo"><img src="image-10-1024x1024.jpeg" alt="Alpha G Corp"></div>
+                <div class="client-logo"><img src="images.jpg" alt="Apollo Clinic"></div>
+                <div class="client-logo"><img src="images.png" alt="Apollo International School"></div>
+                <div class="client-logo"><img src="images (1).jpg" alt="Amtek"></div>
+                <div class="client-logo"><img src="images (1).png" alt="Amway"></div>
+                <div class="client-logo"><img src="images (2).jpg" alt="Ensel"></div>
+                <div class="client-logo"><img src="images (2).png" alt="Ashok Leyland"></div>
+                <div class="client-logo"><img src="images (3).jpg" alt="Birlasoft"></div>
+                <div class="client-logo"><img src="images (3).png" alt="Convergys"></div>
+                <div class="client-logo"><img src="images (4).jpg" alt="Educomp"></div>
+                <div class="client-logo"><img src="images (4).png" alt="DLF Building India"></div>
+                <div class="client-logo"><img src="images (5).jpg" alt="Alpha G Corp"></div>
+                <div class="client-logo"><img src="images (5).png" alt="Apollo Clinic"></div>
+                <div class="client-logo"><img src="images (6).jpg" alt="Apollo International School"></div>
+                <div class="client-logo"><img src="images (6).png" alt="Amtek"></div>
+                <div class="client-logo"><img src="images (7).png" alt="Amway"></div>
+                <div class="client-logo"><img src="naturals-logo-png_seeklogo-528622.png" alt="Ensel"></div>
+                <div class="client-logo"><img src="toniguy-logo-png_seeklogo-140823 (1).png" alt="Ashok Leyland"></div>
+                <div class="client-logo"><img src="unnamed.png" alt="Birlasoft"></div>
+                <div class="client-logo"><img src="untitled-1_24.png" alt="Convergys"></div>
+                <!-- Add more as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="tns logo.png" alt="TN Signs" class="footer-logo">
+                    <p>Premium sign boards in Tamil Nadu. Transforming brands with innovative and impactful custom signage.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/tamilnadusigns"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tamilnadu_sign"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919952988756"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@TNsigns"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style:none;">
+                        <li><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
+                        <li><a href="product.html" style="color:#ccc; text-decoration:none;">Products</a></li>
+                        <li><a href="clients.html" style="color:#ccc; text-decoration:none;">Clients</a></li>
+                        <li><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt" style="color:var(--primary);margin-right:10px;"></i> 3, Ellis Rd, Mount Road, Anna Salai, Triplicane, Chennai, Tamil Nadu 600002</p>
+                    <p><i class="fas fa-phone-alt" style="color:var(--primary);margin-right:10px;"></i> +91 99529 88756</p>
+                    <p><i class="fas fa-envelope" style="color:var(--primary);margin-right:10px;"></i> tamilnadusigns@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 TN Signs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
